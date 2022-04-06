@@ -45,8 +45,17 @@ const sayHello = () => { */
 const fibo = () => {
   let loop = [0, 1];
   let number = document.getElementById("entrada").value;
-  for (let i = 2; i < number; i++) loop[i] = loop[i - 1] + loop[i - 2];
-  document.getElementById("salida").innerHTML = loop[number - 1];
+  for (let i = 2; i < number; i++) {
+    loop[i] = loop[i - 1] + loop[i - 2];
+  }
+
+  if (number < 50) {
+    document.getElementById("salida").innerHTML =
+      "El resultado es: " + loop[number - 1];
+  } else {
+    document.getElementById("salida").innerHTML =
+      "intenta poner un numero que no tenga valor de infinito menor que 50";
+  }
 };
 
 const factorizar = () => {
@@ -55,5 +64,10 @@ const factorizar = () => {
   for (var i = num - 1; i >= 1; i--) {
     num = num * i;
   }
-  document.getElementById("salida2").innerHTML = num;
+  if (num < 3628801) {
+    document.getElementById("salida2").innerHTML = "El resultado es: " + num;
+  } else {
+    return (document.getElementById("salida2").innerHTML =
+      "Numero muy largo, intenta un factorizar menor o igual que 10");
+  }
 };
